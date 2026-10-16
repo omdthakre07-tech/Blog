@@ -1,3 +1,5 @@
+import { IMAGES } from '../assets/images';
+
 export interface FossilDiscovery {
   id: string;
   title: string;
@@ -21,7 +23,7 @@ export const FOSSIL_DISCOVERIES: FossilDiscovery[] = [
     country: 'United States (Los Angeles, California)',
     geologicalAge: 'Late Pleistocene to Holocene (50,000 to 11,000 years ago)',
     primaryOrganisms: ['Smilodon fatalis', 'Aenocyon dirus (Dire Wolf)', 'Mammut americanum', 'Paramylodon'],
-    image: '/src/assets/images/animal_smilodon_1792088933463.jpg',
+    image: IMAGES.smilodon,
     summary: 'Naturally occurring crude petroleum asphalt seeps formed deceptive shallow pools that trapped thirsty herbivores. As trapped prey cried out, predators gathered and became ensnared in an extraordinary predator-trap dynamic.',
     paleontologicalSignificance: 'Over 3.5 million micro- and macro-fossils representing over 600 species of animals and plants, offering the most complete high-resolution record of Pleistocene terrestrial ecology in North America.',
     keyFinds: [
@@ -39,7 +41,7 @@ export const FOSSIL_DISCOVERIES: FossilDiscovery[] = [
     country: 'Russia (Siberian Tundra & Arctic Coasts)',
     geologicalAge: 'Late Pleistocene (50,000 to 10,000 years ago)',
     primaryOrganisms: ['Mammuthus primigenius', 'Coelodonta antiquitatis (Woolly Rhino)', 'Canis lupus'],
-    image: '/src/assets/images/hero_woolly_mammoth_1792088931363.jpg',
+    image: IMAGES.heroMammoth,
     summary: 'The sub-zero permafrost soils of Siberia act as cryogenic vaults, preventing microbial decay and preserving intact soft tissues, internal organs, mother’s milk in stomachs, and intact hair coats for tens of thousands of years.',
     paleontologicalSignificance: 'Enabled the direct sequencing of complete nuclear genomes, biochemical analysis of cold-adapted hemoglobin, and mapping of gastrointestinal micro-flora from animals that lived alongside Neanderthals.',
     keyFinds: [
@@ -57,7 +59,7 @@ export const FOSSIL_DISCOVERIES: FossilDiscovery[] = [
     country: 'Colombia (La Guajira Peninsula)',
     geologicalAge: 'Middle to Late Paleocene (~60 to 58 million years ago)',
     primaryOrganisms: ['Titanoboa cerrejonensis', 'Carbonemys cofrinii', 'Acherontisuchus', 'Giant Lungfish'],
-    image: '/src/assets/images/animal_titanoboa_1792088974540.jpg',
+    image: IMAGES.titanoboa,
     summary: 'Layers of claystone interspersed between open-pit coal seams in northeastern Colombia uncovered the world’s oldest recorded Neotropical rainforest, thriving in super-warm equatorial conditions 6 million years after dinosaurs died.',
     paleontologicalSignificance: 'Proved that tropical equatorial ecosystems not only survived but flourished under extreme greenhouse temperatures (30°C to 34°C), producing gigantic ectothermic squamates.',
     keyFinds: [
@@ -75,7 +77,7 @@ export const FOSSIL_DISCOVERIES: FossilDiscovery[] = [
     country: 'Mauritius (Plaine Magnien)',
     geologicalAge: 'Mid-to-Late Holocene (~4,200 to 300 years ago)',
     primaryOrganisms: ['Raphus cucullatus (Dodo)', 'Cylindraspis (Giant Tortoises)', 'Aphanapteryx'],
-    image: '/src/assets/images/animal_dodo_bird_1792088933115.jpg',
+    image: IMAGES.dodoBird,
     summary: 'A shallow freshwater marsh near the southeastern coast of Mauritius where anoxic muds accumulated thousands of subfossil bones over millennia, including the greatest concentration of dodo remains ever uncovered.',
     paleontologicalSignificance: 'Allowed modern researchers to reconstruct the accurate skeletal anatomy, bone histology, sexual dimorphism, and environmental adaptations of the dodo prior to European human settlement.',
     keyFinds: [

@@ -1,4 +1,5 @@
 import { Category } from '../types';
+import { IMAGES } from '../assets/images';
 
 export const CATEGORIES: Category[] = [
   {
@@ -8,7 +9,7 @@ export const CATEGORIES: Category[] = [
     description: 'Colossal cold-adapted megafauna that dominated the Pleistocene mammoth steppe and vanished as glaciers retreated.',
     count: 4,
     badge: 'Pleistocene Megafauna',
-    featuredImage: '/src/assets/images/hero_woolly_mammoth_1792088931363.jpg'
+    featuredImage: IMAGES.heroMammoth
   },
   {
     id: 'extinct-birds',
@@ -17,7 +18,7 @@ export const CATEGORIES: Category[] = [
     description: 'Avian species lost to rapid habitat transformation, insular vulnerability, and intensive human harvesting.',
     count: 3,
     badge: 'Avian Biogeography',
-    featuredImage: '/src/assets/images/animal_dodo_bird_1792088933115.jpg'
+    featuredImage: IMAGES.dodoBird
   },
   {
     id: 'marine-animals',
@@ -26,7 +27,7 @@ export const CATEGORIES: Category[] = [
     description: 'Oceanic leviathans and specialized marine vertebrates from warm Miocene shelf seas to subarctic kelp canopies.',
     count: 2,
     badge: 'Oceanic Paleontology',
-    featuredImage: '/src/assets/images/animal_megalodon_1792088952387.jpg'
+    featuredImage: IMAGES.megalodon
   },
   {
     id: 'ancient-reptiles',
@@ -35,7 +36,7 @@ export const CATEGORIES: Category[] = [
     description: 'Enormous predatory squamates and archaic archosaurs that ruled post-dinosaur equatorial waterways.',
     count: 1,
     badge: 'Paleogene & Mesozoic',
-    featuredImage: '/src/assets/images/animal_titanoboa_1792088974540.jpg'
+    featuredImage: IMAGES.titanoboa
   },
   {
     id: 'extinct-mammals',
@@ -44,7 +45,7 @@ export const CATEGORIES: Category[] = [
     description: 'Remarkable mammalian lineages across the Cenozoic, from saber-toothed hypercarnivores to giant marsupials.',
     count: 5,
     badge: 'Mammalian Evolution',
-    featuredImage: '/src/assets/images/animal_smilodon_1792088933463.jpg'
+    featuredImage: IMAGES.smilodon
   },
   {
     id: 'recently-extinct',
@@ -53,6 +54,6 @@ export const CATEGORIES: Category[] = [
     description: 'Species lost within recorded human history between the 17th and 20th centuries, documented in museum archives.',
     count: 5,
     badge: 'Anthropocene Records',
-    featuredImage: '/src/assets/images/animal_thylacine_1792088932933.jpg'
+    featuredImage: IMAGES.thylacine
   }
 ];

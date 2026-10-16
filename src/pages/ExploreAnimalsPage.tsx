@@ -3,6 +3,7 @@ import { ANIMALS } from '../data/animals';
 import { CATEGORIES } from '../data/categories';
 import { Animal, CategoryId } from '../types';
 import { Search, Globe, Clock, ArrowRight, LayoutGrid, Table, ShieldCheck } from 'lucide-react';
+import { getImageFallback } from '../assets/images';
 
 interface ExploreAnimalsPageProps {
   onSelectAnimal: (id: string) => void;
@@ -162,8 +163,14 @@ export const ExploreAnimalsPage: React.FC<ExploreAnimalsPageProps> = ({
                     src={animal.image}
                     alt={`${animal.commonName} (${animal.scientificName})`}
                     className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
-                    referrerPolicy="no-referrer"
                     loading="lazy"
+                    onError={(e) => {
+                      const target = e.currentTarget;
+                      if (!target.dataset.triedFallback) {
+                        target.dataset.triedFallback = 'true';
+                        target.src = getImageFallback(animal.image);
+                      }
+                    }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#111814] via-transparent to-transparent opacity-80" />
                   <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between text-[11px] text-stone-300 font-medium">

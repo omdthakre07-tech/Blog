@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FOSSIL_DISCOVERIES, FossilDiscovery } from '../data/fossils';
 import { Compass, ExternalLink, MapPin, Calendar, Layers, ShieldCheck, ArrowRight } from 'lucide-react';
+import { IMAGES } from '../assets/images';
 
 interface FossilDiscoveriesPageProps {
   onSelectAnimal: (id: string) => void;
@@ -31,10 +32,9 @@ export const FossilDiscoveriesPage: React.FC<FossilDiscoveriesPageProps> = ({ on
         <div className="relative rounded-sm overflow-hidden border border-stone-800 bg-[#121914] mb-14 shadow-2xl">
           <div className="aspect-[21/9] w-full relative">
             <img
-              src="/src/assets/images/fossil_discovery_1792088973646.jpg"
+              src={IMAGES.fossilDiscovery}
               alt="Paleontological excavation quarry with field researchers documenting fossil beds"
               className="w-full h-full object-cover object-center"
-              referrerPolicy="no-referrer"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#0b0f0d] via-[#0b0f0d]/50 to-transparent" />
             <div className="absolute bottom-6 left-6 right-6 max-w-2xl">
@@ -102,6 +102,24 @@ export const FossilDiscoveriesPage: React.FC<FossilDiscoveriesPageProps> = ({ on
                 <span>Museum Database</span>
                 <ExternalLink className="w-3.5 h-3.5" />
               </a>
+            </div>
+
+            {/* Specimen / Site Image */}
+            <div className="relative aspect-[16/9] w-full rounded-sm overflow-hidden border border-stone-800 bg-[#16221c]">
+              <img
+                src={selectedSite.image}
+                alt={selectedSite.title}
+                className="w-full h-full object-cover object-center"
+                onError={(e) => {
+                  const target = e.currentTarget;
+                  if (!target.dataset.triedFallback) {
+                    target.dataset.triedFallback = 'true';
+                    const filename = selectedSite.image.split('/').pop();
+                    if (filename) target.src = `/${filename}`;
+                  }
+                }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#111713] via-transparent to-transparent opacity-60" />
             </div>
 
             {/* Geological Age and Organisms */}

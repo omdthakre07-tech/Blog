@@ -3,6 +3,7 @@ import { Animal, Article } from '../types';
 import { getAnimalById, ANIMALS } from '../data/animals';
 import { ARTICLES } from '../data/articles';
 import { ArrowLeft, Clock, Globe, ShieldAlert, Award, BookOpen, ExternalLink, ArrowRight, Share2, Compass } from 'lucide-react';
+import { getImageFallback } from '../assets/images';
 
 interface AnimalDetailPageProps {
   animalId: string;
@@ -86,7 +87,13 @@ export const AnimalDetailPage: React.FC<AnimalDetailPageProps> = ({
             src={animal.image}
             alt={`${animal.commonName} (${animal.scientificName})`}
             className="w-full aspect-[16/9] object-cover object-center"
-            referrerPolicy="no-referrer"
+            onError={(e) => {
+              const target = e.currentTarget;
+              if (!target.dataset.triedFallback) {
+                target.dataset.triedFallback = 'true';
+                target.src = getImageFallback(animal.image);
+              }
+            }}
           />
           <figcaption className="p-4 bg-[#0e1411] border-t border-stone-800/80 text-xs text-stone-400 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
             <span>{animal.imageCaption}</span>
@@ -342,7 +349,13 @@ export const AnimalDetailPage: React.FC<AnimalDetailPageProps> = ({
                     src={rel.image}
                     alt={rel.commonName}
                     className="w-full aspect-video object-cover rounded-sm mb-3 group-hover:scale-102 transition-transform"
-                    referrerPolicy="no-referrer"
+                    onError={(e) => {
+                      const target = e.currentTarget;
+                      if (!target.dataset.triedFallback) {
+                        target.dataset.triedFallback = 'true';
+                        target.src = getImageFallback(rel.image);
+                      }
+                    }}
                   />
                   <div>
                     <h4 className="font-editorial text-lg text-[#f5f0e6] font-semibold group-hover:text-amber-400">

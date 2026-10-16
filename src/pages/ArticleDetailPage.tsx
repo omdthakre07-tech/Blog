@@ -3,6 +3,7 @@ import { Article } from '../types';
 import { ARTICLES, getArticleBySlug } from '../data/articles';
 import { CATEGORIES } from '../data/categories';
 import { ArrowLeft, Clock, Calendar, User, Share2, Copy, Twitter, Mail, Check, ChevronLeft, ChevronRight, Bookmark, BookOpen, ExternalLink, ArrowRight } from 'lucide-react';
+import { getImageFallback } from '../assets/images';
 
 interface ArticleDetailPageProps {
   slug: string;
@@ -155,7 +156,13 @@ export const ArticleDetailPage: React.FC<ArticleDetailPageProps> = ({
             src={article.coverImage}
             alt={article.title}
             className="w-full aspect-[16/9] object-cover object-center"
-            referrerPolicy="no-referrer"
+            onError={(e) => {
+              const target = e.currentTarget;
+              if (!target.dataset.triedFallback) {
+                target.dataset.triedFallback = 'true';
+                target.src = getImageFallback(article.coverImage);
+              }
+            }}
           />
           <figcaption className="p-3.5 bg-[#0e1411] border-t border-stone-800/80 text-xs text-stone-400">
             {article.coverCaption}

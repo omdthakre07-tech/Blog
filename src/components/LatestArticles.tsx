@@ -2,6 +2,7 @@ import React from 'react';
 import { Article } from '../types';
 import { Clock, Calendar, ArrowRight, User } from 'lucide-react';
 import { CATEGORIES } from '../data/categories';
+import { getImageFallback } from '../assets/images';
 
 interface LatestArticlesProps {
   articles: Article[];
@@ -62,8 +63,14 @@ export const LatestArticles: React.FC<LatestArticlesProps> = ({
                   src={article.coverImage}
                   alt={article.title}
                   className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
-                  referrerPolicy="no-referrer"
                   loading="lazy"
+                  onError={(e) => {
+                    const target = e.currentTarget;
+                    if (!target.dataset.triedFallback) {
+                      target.dataset.triedFallback = 'true';
+                      target.src = getImageFallback(article.coverImage);
+                    }
+                  }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#111814] via-transparent to-transparent opacity-80" />
               </div>

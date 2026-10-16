@@ -1,5 +1,6 @@
 import React from 'react';
 import { Compass, BookOpen, Clock, Globe } from 'lucide-react';
+import { IMAGES } from '../assets/images';
 
 interface HeroSectionProps {
   onExplore: () => void;
@@ -9,17 +10,23 @@ interface HeroSectionProps {
 export const HeroSection: React.FC<HeroSectionProps> = ({ onExplore, onReadStories }) => {
   return (
     <section className="relative w-full min-h-[85vh] lg:min-h-[90vh] flex items-center justify-center overflow-hidden border-b border-stone-800">
-      {/* Background Hero Image with measured dark contrast scrim */}
+      {/* Background Hero Image: Mammoth in Ice Age tundra */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/src/assets/images/hero_woolly_mammoth_1792088931363.jpg"
+          src={IMAGES.heroMammoth}
           alt="Woolly mammoth traversing a vast prehistoric Ice Age tundra with distant snowcapped peaks"
-          className="w-full h-full object-cover object-center scale-105 transition-transform duration-1000"
-          referrerPolicy="no-referrer"
+          className="w-full h-full object-cover object-center scale-100 transition-transform duration-1000"
+          onError={(e) => {
+            const target = e.currentTarget;
+            if (!target.dataset.triedFallback) {
+              target.dataset.triedFallback = 'true';
+              target.src = '/images/hero_woolly_mammoth_1792088931363.jpg';
+            }
+          }}
         />
-        {/* Measured dark scrim for WCAG AA readability */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0b0f0d] via-[#0b0f0d]/65 to-[#0b0f0d]/30" />
-        <div className="absolute inset-0 bg-radial-at-c from-transparent via-[#0b0f0d]/40 to-[#0b0f0d]/80" />
+        {/* Subtle atmospheric vignette allowing the mammoth and tundra landscape to shine through */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0b0f0d] via-[#0b0f0d]/40 to-black/25 pointer-events-none" />
+        <div className="absolute inset-0 bg-black/15 pointer-events-none" />
       </div>
 
       {/* Hero Content */}

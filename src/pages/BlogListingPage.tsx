@@ -3,6 +3,7 @@ import { ARTICLES } from '../data/articles';
 import { CATEGORIES } from '../data/categories';
 import { Article } from '../types';
 import { Search, Clock, Calendar, ArrowRight, Filter, BookOpen } from 'lucide-react';
+import { getImageFallback } from '../assets/images';
 
 interface BlogListingPageProps {
   onSelectArticle: (slug: string) => void;
@@ -179,8 +180,14 @@ export const BlogListingPage: React.FC<BlogListingPageProps> = ({
                     src={article.coverImage}
                     alt={article.title}
                     className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
-                    referrerPolicy="no-referrer"
                     loading="lazy"
+                    onError={(e) => {
+                      const target = e.currentTarget;
+                      if (!target.dataset.triedFallback) {
+                        target.dataset.triedFallback = 'true';
+                        target.src = getImageFallback(article.coverImage);
+                      }
+                    }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#111814] via-transparent to-transparent opacity-80" />
                 </div>

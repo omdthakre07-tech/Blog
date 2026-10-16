@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Animal, Article } from '../types';
 import { Search, X, Compass, BookOpen, Clock, ArrowRight } from 'lucide-react';
+import { getImageFallback } from '../assets/images';
 
 interface SearchModalProps {
   isOpen: boolean;
@@ -179,7 +180,13 @@ export const SearchModal: React.FC<SearchModalProps> = ({
                             src={animal.image}
                             alt=""
                             className="w-12 h-12 rounded-sm object-cover bg-stone-900 shrink-0"
-                            referrerPolicy="no-referrer"
+                            onError={(e) => {
+                              const target = e.currentTarget;
+                              if (!target.dataset.triedFallback) {
+                                target.dataset.triedFallback = 'true';
+                                target.src = getImageFallback(animal.image);
+                              }
+                            }}
                           />
                           <div>
                             <div className="flex items-center gap-2">

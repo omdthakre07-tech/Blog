@@ -1,4 +1,5 @@
 import { Article } from '../types';
+import { IMAGES } from '../assets/images';
 
 export const ARTICLES: Article[] = [
   {
@@ -16,7 +17,7 @@ export const ARTICLES: Article[] = [
     },
     publishedDate: 'March 14, 2026',
     readTimeMinutes: 8,
-    coverImage: '/src/assets/images/hero_woolly_mammoth_1792088931363.jpg',
+    coverImage: IMAGES.heroMammoth,
     coverCaption: 'Mammoth populations contracted northwards as the dry steppe-tundra converted into wet peat bogs and dense taiga.',
     featuredAnimalId: 'woolly-mammoth',
     keyTakeaways: [
@@ -95,7 +96,7 @@ export const ARTICLES: Article[] = [
     },
     publishedDate: 'February 28, 2026',
     readTimeMinutes: 7,
-    coverImage: '/src/assets/images/animal_dodo_bird_1792088933115.jpg',
+    coverImage: IMAGES.dodoBird,
     coverCaption: 'Subfossil bone excavations at Mare aux Songes provide rich anatomical evidence of the dodo’s specialized adaptation to Mauritius.',
     featuredAnimalId: 'dodo',
     keyTakeaways: [
@@ -170,7 +171,7 @@ export const ARTICLES: Article[] = [
     },
     publishedDate: 'January 19, 2026',
     readTimeMinutes: 9,
-    coverImage: '/src/assets/images/animal_passenger_pigeon_1792088933785.jpg',
+    coverImage: IMAGES.passengerPigeon,
     coverCaption: 'Martha, the last passenger pigeon, who lived alone at the Cincinnati Zoo until her passing on September 1, 1914.',
     featuredAnimalId: 'passenger-pigeon',
     keyTakeaways: [
@@ -246,7 +247,7 @@ export const ARTICLES: Article[] = [
     },
     publishedDate: 'January 04, 2026',
     readTimeMinutes: 8,
-    coverImage: '/src/assets/images/animal_thylacine_1792088932933.jpg',
+    coverImage: IMAGES.thylacine,
     coverCaption: 'Historical photograph analysis confirms the thylacine possessed extraordinary cranial convergence with placental wolves.',
     featuredAnimalId: 'thylacine',
     keyTakeaways: [
@@ -322,7 +323,7 @@ export const ARTICLES: Article[] = [
     },
     publishedDate: 'December 12, 2025',
     readTimeMinutes: 7,
-    coverImage: '/src/assets/images/animal_smilodon_1792088933463.jpg',
+    coverImage: IMAGES.smilodon,
     coverCaption: 'Smilodon’s massive forelimbs were engineered to wrestle large megafauna to the ground before applying its delicate, serrated sabers.',
     featuredAnimalId: 'smilodon',
     keyTakeaways: [
@@ -390,7 +391,7 @@ export const ARTICLES: Article[] = [
     },
     publishedDate: 'November 20, 2025',
     readTimeMinutes: 8,
-    coverImage: '/src/assets/images/animal_megalodon_1792088952387.jpg',
+    coverImage: IMAGES.megalodon,
     coverCaption: 'Fossil tooth chemistry reveals Otodus megalodon maintained an internal body temperature warmer than ambient seawater.',
     featuredAnimalId: 'megalodon',
     keyTakeaways: [
@@ -458,7 +459,7 @@ export const ARTICLES: Article[] = [
     },
     publishedDate: 'October 15, 2025',
     readTimeMinutes: 7,
-    coverImage: '/src/assets/images/animal_stellers_sea_cow_1792088953535.jpg',
+    coverImage: IMAGES.stellersSeaCow,
     coverCaption: 'Steller’s sea cow lived in close family groups, grazing on underwater kelp canopies around the Commander Islands.',
     featuredAnimalId: 'stellers-sea-cow',
     keyTakeaways: [
@@ -527,7 +528,7 @@ export const ARTICLES: Article[] = [
     },
     publishedDate: 'September 08, 2025',
     readTimeMinutes: 10,
-    coverImage: '/src/assets/images/fossil_discovery_1792088973646.jpg',
+    coverImage: IMAGES.fossilDiscovery,
     coverCaption: 'Paleontologists examine boundary layer strata containing iridium anomalies and fossil disruption horizons.',
     keyTakeaways: [
       'Mass extinctions are defined by the loss of over 75% of global species within a geologically brief window.',

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Animal } from '../types';
 import { ArrowRight, Globe, Clock } from 'lucide-react';
+import { getImageFallback } from '../assets/images';
 
 interface FeaturedAnimalsProps {
   animals: Animal[];
@@ -68,8 +69,14 @@ export const FeaturedAnimals: React.FC<FeaturedAnimalsProps> = ({
                   src={animal.image}
                   alt={`${animal.commonName} (${animal.scientificName})`}
                   className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
-                  referrerPolicy="no-referrer"
                   loading="lazy"
+                  onError={(e) => {
+                    const target = e.currentTarget;
+                    if (!target.dataset.triedFallback) {
+                      target.dataset.triedFallback = 'true';
+                      target.src = getImageFallback(animal.image);
+                    }
+                  }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#111814] via-transparent to-transparent opacity-80" />
                 

@@ -2,6 +2,7 @@ import React from 'react';
 import { CATEGORIES } from '../data/categories';
 import { CategoryId } from '../types';
 import { Layers, ArrowRight } from 'lucide-react';
+import { getImageFallback } from '../assets/images';
 
 interface CategoryBrowserProps {
   onSelectCategory: (categoryId: CategoryId) => void;
@@ -40,16 +41,22 @@ export const CategoryBrowser: React.FC<CategoryBrowserProps> = ({ onSelectCatego
                 }
               }}
             >
-              {/* Subtle background image overlay with low opacity */}
-              <div className="absolute inset-0 z-0 opacity-15 group-hover:opacity-25 transition-opacity duration-500">
+              {/* Background category image */}
+              <div className="absolute inset-0 z-0 opacity-30 group-hover:opacity-50 transition-opacity duration-500">
                 <img
                   src={category.featuredImage}
                   alt=""
                   className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
-                  referrerPolicy="no-referrer"
                   loading="lazy"
+                  onError={(e) => {
+                    const target = e.currentTarget;
+                    if (!target.dataset.triedFallback) {
+                      target.dataset.triedFallback = 'true';
+                      target.src = getImageFallback(category.featuredImage);
+                    }
+                  }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#101713] via-[#101713]/80 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#101713] via-[#101713]/70 to-transparent" />
               </div>
 
               {/* Card Content */}
