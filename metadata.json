@@ -1,0 +1,6 @@
+{
+  "name": "LOST SPECIES",
+  "description": "Discover the Giants That Time Forgot. A premium wildlife documentary and scientific blog exploring extinct animals, prehistoric ecosystems, and paleontology.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
